@@ -8,7 +8,7 @@ export default function Corousel() {
             <div className="carousel-inner">
                 {CorouselImages.map((img, index) => (
                     <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                        <img src={img} className="d-block w-100" alt="carousel image" />
+                        <img src={img} className="d-block w-100" alt={`Slide ${index + 1}`} />
                     </div>
                 ))}
             </div>
