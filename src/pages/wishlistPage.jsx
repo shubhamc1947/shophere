@@ -30,8 +30,8 @@ export default function WishlistPage() {
                 theme="light"
                 transition={Bounce}
                 limit={3} />
-            <h1 className="text-center">WishList</h1>
-            <div className="container-fluid my-3">
+            <h1 className="text-center" >WishList</h1>
+            <div className="container-fluid my-3" style={{minHeight:"40vh"}}>
                 <div className="d-flex">
                     <div className="col-md-12 d-flex justify-items-center flex-wrap gap-2">
                         {loading ? (
