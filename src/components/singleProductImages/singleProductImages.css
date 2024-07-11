@@ -1,0 +1,12 @@
+.single-page-thumbnail{
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+@media screen and (max-width:576px) {
+    .single-page-thumbnail{
+        width: 353px;
+        height: 350px;
+    }
+}

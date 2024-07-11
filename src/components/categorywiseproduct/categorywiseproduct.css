@@ -1,0 +1,201 @@
+#category-wise-product-corousel{
+	margin-block:5rem;
+}
+
+#category-wise-product-corousel h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+#category-wise-product-corousel h2 b {
+	color: #ffc000;
+}
+#category-wise-product-corousel h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+#category-wise-product-corousel .carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+#category-wise-product-corousel .carousel .carousel-item {
+	min-height: 330px;
+	text-align: center;
+	overflow: hidden;
+}
+#category-wise-product-corousel .carousel .carousel-item .img-box {
+	height: 160px;
+	width: 100%;
+	position: relative;
+}
+#category-wise-product-corousel .carousel .carousel-item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	/* position: absolute; */
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+#category-wise-product-corousel .carousel .carousel-item h4 {
+	font-size: 18px;
+	margin: 10px 0;
+}
+#category-wise-product-corousel .carousel .carousel-item .btn {
+	color: #333;
+	border-radius: 0;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	margin-top: 5px;
+	line-height: 16px;
+}
+#category-wise-product-corousel .carousel .carousel-item .btn:hover, 
+#category-wise-product-corousel .carousel .carousel-item .btn:focus {
+	color: #fff;
+	background: #000;
+	border-color: #000;
+	box-shadow: none;
+}
+#category-wise-product-corousel .carousel .carousel-item .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+#category-wise-product-corousel .carousel .thumb-wrapper {
+	text-align: center;
+}
+#category-wise-product-corousel .carousel .thumb-content {
+	padding: 15px;
+}
+#category-wise-product-corousel .carousel-control-prev, 
+#category-wise-product-corousel .carousel-control-next {
+	height: 100px;
+	width: 40px;
+	background: none;
+	margin: auto 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+#category-wise-product-corousel .carousel-control-prev i, 
+#category-wise-product-corousel .carousel-control-next i {
+	font-size: 30px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin: -16px 0 0 0;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: none;
+	font-weight: bold;
+}
+#category-wise-product-corousel .carousel-control-prev i {
+	margin-left: -3px;
+}
+#category-wise-product-corousel .carousel-control-next i {
+	margin-right: -3px;
+}
+#category-wise-product-corousel .carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+#category-wise-product-corousel .carousel .item-price strike {
+	color: #999;
+	margin-right: 5px;
+}
+#category-wise-product-corousel .carousel .item-price span {
+	color: #86bd57;
+	font-size: 110%;
+}	
+#category-wise-product-corousel .carousel .carousel-indicators {
+	bottom: -50px;
+}
+#category-wise-product-corousel .carousel-indicators li, 
+#category-wise-product-corousel .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border-color: transparent;
+	border: none;
+}
+#category-wise-product-corousel .carousel-indicators li {	
+	background: #00000033;
+}
+#category-wise-product-corousel .carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
+}
+#category-wise-product-corousel .star-rating li {
+	padding: 0;
+}
+#category-wise-product-corousel .star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+
+.category-wise-product {
+	margin: 10px;
+	display: flex;
+	width: 100%;
+	overflow-x: scroll;
+	scrollbar-width: none;
+}
+.button-icon-container{
+	cursor: pointer;
+	position: relative;
+    top: 0;
+    bottom: 0;
+	left: -10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+	background: #0003;
+    height: 70px;
+	border-radius: 7px;
+    margin: auto 0;
+    width: 50px;
+}
+.button-icon-container:hover{
+	border:2px solid #3a72cb;
+
+}
+.button-icon-container button{
+	border-radius: inherit;
+	width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-icon-container-right{
+	margin-left: 15px;
+}
+@media screen and (max-width:576px) {
+	.button-icon-container{
+		display: none;
+	}
+	
+}
