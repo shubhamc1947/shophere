@@ -5,7 +5,7 @@
 Welcome to ShopHere, your ultimate destination for a seamless online shopping experience. ShopHere offers a variety of features designed to make your shopping journey convenient and secure.
 
 #Watch Live Demo Click Below ➡
-https://drive.google.com/file/d/14cYGh6RR1OxEHbaY-QnDL9-rdc452k9Y/view?usp=drive_link
+https://drive.google.com/file/d/14cYGh6RR1OxEHbaY-QnDL9-rdc452k9Y/view?usp=sharing
 ## Features:
 
 - **Sample API Data**: Explore a rich dataset of products through our simulated API.
