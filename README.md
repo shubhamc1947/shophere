@@ -10,8 +10,7 @@ https://github.com/user-attachments/assets/473a7ab4-ef2a-4bb0-abb3-7f9e24e8dee5
 
 
 
-#Watch Live Demo Click Below ➡
-https://drive.google.com/file/d/14cYGh6RR1OxEHbaY-QnDL9-rdc452k9Y/view?usp=sharing
+
 ## Features:
 
 - **Sample API Data**: Explore a rich dataset of products through our simulated API.
