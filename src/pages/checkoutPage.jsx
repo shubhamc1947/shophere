@@ -49,19 +49,44 @@ export default function CheckoutPage() {
         handlePayment();
     }
     const handlePayment = async () => {
-        if (billingDetails.name === "" || billingDetails.address === "" || billingDetails.postalCode === "" || billingDetails.phone === ""
-            || billingDetails.city === "" || billingDetails.country === "" || billingDetails.shippingAddress.name === "" || billingDetails.shippingAddress.phone === "" || billingDetails.shippingAddress.address === "") {
-            return toast.error("All fields are required", {
+        // Check for empty fields and create precise error messages
+        const emptyFields = [];
+
+        if (billingDetails.name === "") emptyFields.push("Name");
+        if (billingDetails.address === "") emptyFields.push("Address");
+        if (billingDetails.postalCode === "") emptyFields.push("Postal Code");
+        if (billingDetails.phone === "") emptyFields.push("Phone");
+        if (billingDetails.city === "") emptyFields.push("City");
+        if (billingDetails.country === "") emptyFields.push("Country");
+        if (billingDetails.shippingAddress.name === "") emptyFields.push("Shipping Name");
+        if (billingDetails.shippingAddress.phone === "") emptyFields.push("Shipping Phone");
+        if (billingDetails.shippingAddress.address === "") emptyFields.push("Shipping Address");
+
+        if (emptyFields.length > 0) {
+            let errorMessage;
+            
+            if (emptyFields.length === 1) {
+                errorMessage = `${emptyFields[0]} is required`;
+            } else if (emptyFields.length === 2) {
+                errorMessage = `${emptyFields[0]} and ${emptyFields[1]} are required`;
+            } else {
+                // For 3 or more fields
+                const lastField = emptyFields.pop();
+                errorMessage = `${emptyFields.join(', ')}, and ${lastField} are required`;
+            }
+            
+            return toast.error(errorMessage, {
                 position: "top-right",
-                autoClose: 1000,
+                autoClose: 3000, // Increased time for longer messages
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-            })
+            });
         }
+
         if (billingDetails.phone.length !== 10) {
             return toast.error("Mobile no must be 10 digits", {
                 position: "top-right",
@@ -137,6 +162,10 @@ export default function CheckoutPage() {
         }));
     }, []);    
 
+    useEffect(() => {
+        console.log("userData updated", userData);
+    }, [userData]);
+
 
     return (
         <>
@@ -157,15 +186,15 @@ export default function CheckoutPage() {
                 <div className="row">
                     <div className="col-xl-8 mb-3">
                         <BillingDetails billingDetails={billingDetails} setBillingDetails={setBillingDetails} />
-                        <div class="row my-4">
-                            <div class="col">
-                                <Link to={"/shop"} class="btn btn-link text-muted">
-                                    <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping
+                        <div className="row my-4">
+                            <div className="col">
+                                <Link to={"/shop"} className="btn btn-link text-muted">
+                                    <i className="mdi mdi-arrow-left me-1"></i> Continue Shopping
                                 </Link>
                             </div>
-                            <div class="col">
-                                <div class="text-end mt-2 mt-sm-0">
-                                    <button class="btn btn-success" id="form-submit" onClick={proceesToPayButtonHandler}> <i class="mdi mdi-cart-outline me-1"></i> Procced </button>
+                            <div className="col">
+                                <div className="text-end mt-2 mt-sm-0">
+                                    <button className="btn btn-success" id="form-submit" onClick={proceesToPayButtonHandler}> <i className="mdi mdi-cart-outline me-1"></i> Procced </button>
                                 </div>
                             </div>
                         </div>

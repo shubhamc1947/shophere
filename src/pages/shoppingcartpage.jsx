@@ -24,8 +24,14 @@ const ShoppingCartPage = () => {
             let totalPriceWithoutTax = 0;
 
             cart?.forEach(item => {
-                totalPriceWithoutTax += item.price * item.quantity;
+                const price = parseFloat(item?.price) || 0;
+                const quantity = parseInt(item?.quantity) || 0;
+                totalPriceWithoutTax += price * quantity;
             });
+
+
+            console.log(cart)
+            console.log(totalPriceWithoutTax)
 
             const tax = Math.round(totalPriceWithoutTax * 0.1);
             const shipping = totalPriceWithoutTax > 1000 ? 0 : 50;

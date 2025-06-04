@@ -112,31 +112,29 @@ export default function ShippingInfo(props) {
                         {
                             address?.map((item, index) => {
                                 return (
-                                    <>
-                                        <div className="col-lg-4 col-sm-6" key={index + 1}>
-                                            <div data-bs-toggle="collapse">
-                                                <label className="card-radio-label mb-0">
-                                                    <input type="radio" name="address" id="info-address" className="card-radio-input" value={index} onClick={(e) => { addressHandler(e.target.value) }} />
-                                                    <div className="card-radio text-truncate p-3">
-                                                        <span className="fs-14 mb-4 d-block">Address {index + 1}</span>
-                                                        <span className="fs-14 mb-2 d-block">{item.name}</span>
-                                                        <span className="text-muted fw-normal text-wrap mb-1 d-block">{item.address}</span>
-                                                        <span className="text-muted fw-normal d-block">Mo. {item.mobile}</span>
-                                                    </div>
-                                                </label>
-                                                <div className="edit-btn bg-light  rounded ">
-                                                    <Link to="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" onClick={() => { handleEditButton(item, index) }}>
-                                                        <i className="bx bx-pencil font-size-16"></i>
-                                                    </Link>
+                                    <div className="col-lg-4 col-sm-6" key={`billing_idx${index + 1}`}>
+                                        <div data-bs-toggle="collapse">
+                                            <label className="card-radio-label mb-0">
+                                                <input type="radio" name="address" id="info-address" className="card-radio-input" value={index} onClick={(e) => { addressHandler(e.target.value) }} />
+                                                <div className="card-radio text-truncate p-3">
+                                                    <span className="fs-14 mb-4 d-block">Address {index + 1}</span>
+                                                    <span className="fs-14 mb-2 d-block">{item.name}</span>
+                                                    <span className="text-muted fw-normal text-wrap mb-1 d-block">{item.address}</span>
+                                                    <span className="text-muted fw-normal d-block">Mo. {item.mobile}</span>
                                                 </div>
-                                                <div className="delete-btn bg-light rounded ">
-                                                    <Link to="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" onClick={() => { handleDeleteButton(index) }}>
-                                                        <i className="fa fa-trash font-size-16 "></i>
-                                                    </Link>
-                                                </div>
+                                            </label>
+                                            <div className="edit-btn bg-light  rounded ">
+                                                <Link to="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" onClick={() => { handleEditButton(item, index) }}>
+                                                    <i className="bx bx-pencil font-size-16"></i>
+                                                </Link>
+                                            </div>
+                                            <div className="delete-btn bg-light rounded ">
+                                                <Link to="#" data-bs-toggle="tooltip" data-placement="top" title="" data-bs-original-title="Edit" onClick={() => { handleDeleteButton(index) }}>
+                                                    <i className="fa fa-trash font-size-16 "></i>
+                                                </Link>
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 )
                             })
                         }

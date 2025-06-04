@@ -31,7 +31,7 @@ export default function LoginCard() {
                 const wholeData = await fetch("https://dummyjson.com/user/me", {
                     method: 'GET',
                     headers: {
-                        'Authorization': 'Bearer '+data.token,
+                        'Authorization': 'Bearer '+data.accessToken,
                     },
                 })
                 const userData = await wholeData.json();

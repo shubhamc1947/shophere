@@ -66,7 +66,7 @@ export default function ConfirmationCard(props) {
                 {/* Order Summary */}
                 <div className="d-flex justify-content-between pt-2">
                     <p className="fw-bold mb-0">Order Details</p>
-                    <p className="text-muted mb-0"><span className="fw-bold me-4">Total</span>&#8377;{orderDetails?.billingDetails.OrderSummary.subTotal}</p>
+                    <p className="text-muted mb-0"><span className="fw-bold me-4">Total</span>&#8377;{orderDetails?.billingDetails?.OrderSummary?.subTotal}</p>
                 </div>
 
                 {/* Additional details */}

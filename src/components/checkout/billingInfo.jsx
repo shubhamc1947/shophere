@@ -39,14 +39,23 @@ export default function BillingInfo(props) {
                             <textarea className="form-control" id="billing-address" rows="3" placeholder="Enter full address" value={billingDetails.address} required="required" onChange={(e)=>{setBillingDetails({ ...billingDetails, address: e.target.value });}}></textarea>
                         </div>
                         <div className="row">
-                            <div className="col-lg-4">
-                                <div className="mb-4 mb-lg-0">
+                        <div className="col-lg-4">
+                            <div className="mb-4 mb-lg-0">
                                     <label className="form-label">Country</label>
-                                    <select className="form-control form-select" title="Country" required="required" onChange={(e)=>{setBillingDetails({ ...billingDetails, country: e.target.value });}}>
-                                        <option value="0" selected={billingDetails?.country==="0"? "selected":""}>Select Country</option>
-                                        <option value="India" selected={billingDetails?.country==="India"? "selected":""}>India</option>
-
-
+                                    <select 
+                                        className="form-control form-select" 
+                                        title="Country" 
+                                        required 
+                                        value={billingDetails?.country || "0"}
+                                        onChange={(e) => {
+                                            setBillingDetails({ 
+                                                ...billingDetails, 
+                                                country: e.target.value 
+                                            });
+                                        }}
+                                    >
+                                        <option value="0">Select Country</option>
+                                        <option value="India">India</option>
                                     </select>
                                 </div>
                             </div>
