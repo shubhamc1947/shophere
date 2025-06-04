@@ -9,6 +9,11 @@ Welcome to ShopHere, your ultimate destination for a seamless online shopping ex
 https://github.com/user-attachments/assets/473a7ab4-ef2a-4bb0-abb3-7f9e24e8dee5
 
 
+Card Number: 4111 1111 1111 1111
+Expiry: Any future date (e.g., 12/34)
+CVV: Any 3-digit number (e.g., 123)
+Name on Card: Any name
+OTP (if prompted): 123456
 
 
 ## Features:
