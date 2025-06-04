@@ -30,8 +30,8 @@ const ShoppingCartPage = () => {
             });
 
 
-            console.log(cart)
-            console.log(totalPriceWithoutTax)
+            // console.log(cart)
+            // console.log(totalPriceWithoutTax)
 
             const tax = Math.round(totalPriceWithoutTax * 0.1);
             const shipping = totalPriceWithoutTax > 1000 ? 0 : 50;

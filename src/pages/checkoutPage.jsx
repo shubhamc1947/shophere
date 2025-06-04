@@ -145,26 +145,84 @@ export default function CheckoutPage() {
 
 
     }
+    const [orderReceipt] = useState(() => 'order_rcptid_' + Math.round(Math.random() * 10000000000));
+
+    const [cartData, setCartData] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem("cartData")) || {};
+        } catch {
+            return {};
+        }
+    });
+    
+    // Optional: Add an effect to listen for storage changes (if needed)
+    useEffect(() => {
+        function handleStorageChange() {
+            try {
+                const newCart = JSON.parse(localStorage.getItem("cartData")) || {};
+                setCartData(prev => {
+                    // Only update if changed (simple shallow check)
+                    if (JSON.stringify(prev) !== JSON.stringify(newCart)) {
+                        return newCart;
+                    }
+                    return prev;
+                });
+            } catch {
+                // ignore parse errors
+            }
+        }
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+    
     useEffect(() => {
         if (!userData) return;
     
-        setBillingDetails(prev => ({
-            ...prev,
-            cartItem: JSON.parse(localStorage.getItem("cartData")),
-            name: [userData?.firstName, userData?.lastName].filter(Boolean).join(" "),
-            email: userData?.email,
-            id: userData?.id,
-            userName: userData?.username,
-            address: userData?.address?.address,
-            city: userData?.address?.city,
-            postalCode: userData?.address?.postalCode,
-            order_receipt: 'order_rcptid_' + Math.round(Math.random() * 10000000000),
-        }));
-    }, []);    
+        setBillingDetails(prev => {
+            // Avoid unnecessary updates if values are the same
+            const newCartItem = cartData;
+            const newName = [userData?.firstName, userData?.lastName].filter(Boolean).join(" ");
+            const newEmail = userData?.email;
+            const newId = userData?.id;
+            const newUserName = userData?.username;
+            const newAddress = userData?.address?.address;
+            const newCity = userData?.address?.city;
+            const newPostalCode = userData?.address?.postalCode;
+    
+            // Check if anything changed to avoid updating state unnecessarily
+            if (
+                prev.cartItem === newCartItem &&
+                prev.name === newName &&
+                prev.email === newEmail &&
+                prev.id === newId &&
+                prev.userName === newUserName &&
+                prev.address === newAddress &&
+                prev.city === newCity &&
+                prev.postalCode === newPostalCode &&
+                prev.order_receipt === orderReceipt
+            ) {
+                return prev; // no changes, no update
+            }
+    
+            return {
+                ...prev,
+                cartItem: newCartItem,
+                name: newName,
+                email: newEmail,
+                id: newId,
+                userName: newUserName,
+                address: newAddress,
+                city: newCity,
+                postalCode: newPostalCode,
+                order_receipt: orderReceipt,
+            };
+        });
+    }, [userData, cartData, orderReceipt]);
+    
 
-    useEffect(() => {
-        console.log("userData updated", userData);
-    }, [userData]);
+    // useEffect(() => {
+    //     console.log("userData updated", userData);
+    // }, [userData]);
 
 
     return (
