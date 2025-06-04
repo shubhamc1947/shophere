@@ -121,20 +121,21 @@ export default function CheckoutPage() {
 
     }
     useEffect(() => {
-        setBillingDetails({
-            ...billingDetails,
+        if (!userData) return;
+    
+        setBillingDetails(prev => ({
+            ...prev,
             cartItem: JSON.parse(localStorage.getItem("cartData")),
-            name: userData?.firstName.concat(" ", userData?.lastName),
+            name: [userData?.firstName, userData?.lastName].filter(Boolean).join(" "),
             email: userData?.email,
             id: userData?.id,
             userName: userData?.username,
-            address: userData?.address.address,
-            city: userData?.address.city,
-            postalCode: userData?.address.postalCode,
-            order_receipt: 'order_rcptid_'.concat(Math.round(Math.random() * 10000000000)),
-        });
-        // eslint-disable-next-line
-    }, []);
+            address: userData?.address?.address,
+            city: userData?.address?.city,
+            postalCode: userData?.address?.postalCode,
+            order_receipt: 'order_rcptid_' + Math.round(Math.random() * 10000000000),
+        }));
+    }, []);    
 
 
     return (
